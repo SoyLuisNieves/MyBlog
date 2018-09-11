@@ -12,3 +12,10 @@ class PostModelAdmin(admin.ModelAdmin):
         model = Post
 
 admin.site.register(Post, PostModelAdmin)
+
+
+# CRUD
+# CREATE - MAKE NEW (POST)
+# RETRIEVE - GET - LIST / SEARCH (GET)
+# UPDATE - EDIT (PUSH)
+# DELETE - DELETE (DELETE)
