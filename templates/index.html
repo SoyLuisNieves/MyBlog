@@ -7,7 +7,7 @@
  <body>
      <h1>{{ title }} is working</h1>
      {% for obj in object_list %}
-         <p> {{ obj.title }} </p>
+         <p><a href="{{ obj.get_absolute_url }}">{{ obj.title }}</a></p>
          <p> {{ obj.content }} </p>
          <p> {{ obj.updated }} </p>
          <p> {{ obj.timestamp }} </p>
