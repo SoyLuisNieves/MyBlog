@@ -13,8 +13,7 @@ def post_create(request):
         # Message Create
         messages.success(request, "Successfully created")
         return HttpResponseRedirect(instance.get_absolute_url())
-    # else:
-        # messages.error(request, "Not Successfully created")
+   
         #   print form.cleaned_date.get("title")
     # if request.method == "POST":
         # print "title" + request.POST.get("content")
@@ -49,7 +48,7 @@ def post_list(request):
 #            "title": "List"
 #        }
         
-    return render(request, "index.html", context)
+    return render(request, "post_list.html", context)
 
 def post_update(request, id=id):
     instance = get_object_or_404(Post, id=id)
