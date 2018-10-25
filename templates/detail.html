@@ -5,14 +5,36 @@
 
 {% block content %}
 <div class="col-sm-6 col-sm-offset-3">
-	<h1>{{ instance.title }} <small>{{ instance.timestamp }}</small></h1>
+	<h1>{{ instance.title }} <small>{{ instance.timestamp|timesince }}</small></h1>
 	{% if instance.image %}
 		<img src="{{ instance.image.url }}" class="img-responsive" alt="">
 	{% endif %}
 	<p>{{ instance.content | linebreaks }}</p>
+	<hr>
+	<div class="row">
+		<div class="col-sm-12 center-block">
+			<a class="btn btn-social-icon btn-twitter">
+    		<span class="fa fa-twitter"></span>
+	  	</a>
+	  	<a class="btn btn-social-icon btn-facebook">
+	    	<span class="fa fa-facebook"></span>
+	  	</a>
+	  	<a class="btn btn-social-icon btn-reddit">
+	    	<span class="fa fa-reddit"></span>
+	  	</a>
+	  	<a class="btn btn-social-icon btn-linkedin">
+	    	<span class="fa fa-linkedin"></span>
+	  	</a>
+	  	<a class="btn btn-social-icon btn-pinterest">
+	    	<span class="fa fa-pinterest"></span>
+	  	</a>
+		</div>
+	</div>
+
 </div>
 
-
+<hr>
+<hr>
 <div class="col-sm-6 col-sm-offset-3">
 	<div id="disqus_thread"></div>	
 </div>
