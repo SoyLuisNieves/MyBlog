@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load urlify %}
 {% block head_title %}{{ instance.title}}|{{ block.super }}{% endblock head_title %}
 
 
@@ -9,25 +9,25 @@
 	{% if instance.image %}
 		<img src="{{ instance.image.url }}" class="img-responsive" alt="">
 	{% endif %}
+	
 	<p>{{ instance.content | linebreaks }}</p>
+	{{instance.content|urlify}}
+	{{share_string}}
 	<hr>
 	<div class="row">
 		<div class="col-sm-12 center-block">
-			<a class="btn btn-social-icon btn-twitter">
-    		<span class="fa fa-twitter"></span>
-	  	</a>
-	  	<a class="btn btn-social-icon btn-facebook">
-	    	<span class="fa fa-facebook"></span>
-	  	</a>
-	  	<a class="btn btn-social-icon btn-reddit">
-	    	<span class="fa fa-reddit"></span>
-	  	</a>
-	  	<a class="btn btn-social-icon btn-linkedin">
-	    	<span class="fa fa-linkedin"></span>
-	  	</a>
-	  	<a class="btn btn-social-icon btn-pinterest">
-	    	<span class="fa fa-pinterest"></span>
-	  	</a>
+			<a class="btn btn-social-icon btn-facebook" href="https://facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}" target="_blank">
+    			<span class="fa fa-facebook"></span>
+	  		</a>
+		  	<a class="btn btn-social-icon btn-twitter" href="https://twitter.com/home?status={{ instance.content|truncatechars:80|urlify }}%20{{ request.build_absolute_uri }}" target="_blank">
+		    	<span class="fa fa-twitter"></span>
+		  	</a>
+		  	<a class="btn btn-social-icon btn-google" href="https://plus.google.com/share?url={{ request.build_absolute_uri }}" target="_blank">
+		    	<span class="fa fa-google"></span>
+		  	</a>
+		  	<a class="btn btn-social-icon btn-reddit" target="_blank">
+		    	<span class="fa fa-reddit"></span>
+		  	</a>
 		</div>
 	</div>
 
