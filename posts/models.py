@@ -4,8 +4,10 @@ from django.conf import settings
 from django.db import models
 from django.core.urlresolvers import reverse
 from django.db.models.signals import pre_save
+from django.utils import timezone
 
 from django.utils.text import slugify
+
 
 def upload_location(instance, filename):
     # filebase, extension = filename.split(".")
